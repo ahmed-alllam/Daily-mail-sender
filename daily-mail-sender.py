@@ -30,7 +30,7 @@ def get_weather():
     return '{} with temperature of {} celsius.'.format(status, temp)
 
 
-def send_tasks_mail():
+def send_daily_mail():
     weather = get_weather() + '\n'
     quote = wikiquotes.quote_of_the_day("english")
     anydo_tasks = '\t' + get_anydo_tasks(any_do_email, any_do_password)
@@ -73,6 +73,6 @@ if __name__ == '__main__':
         local_time = time.localtime(time.time())
         if local_time.tm_hour == 8 and local_time.tm_min == 0:
             extract_info()
-            send_tasks_mail()
+            send_daily_mail()
             time.sleep(86400)
         time.sleep(59)
