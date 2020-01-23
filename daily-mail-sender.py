@@ -72,7 +72,6 @@ if __name__ == '__main__':
     while True:
         local_time = time.localtime(time.time())
         if local_time.tm_hour == 8 and local_time.tm_min == 0:
-            extract_info()
             send_daily_mail()
             time.sleep(86400)
         time.sleep(59)
